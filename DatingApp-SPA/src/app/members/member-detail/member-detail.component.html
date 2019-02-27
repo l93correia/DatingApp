@@ -21,11 +21,11 @@
           </div>
           <div>
             <strong>Last Active:</strong>
-            <p>{{ user.lastActive }}</p>
+            <p>{{ user.lastActive | timeAgo }}</p>
           </div>
           <div>
             <strong>Member Since:</strong>
-            <p>{{ user.created }}</p>
+            <p>{{ user.created | date: 'mediumDate' }}</p>
           </div>
         </div>
         <div class="card-footer">
@@ -41,13 +41,16 @@
         <tabset class="member-tabset">
           <tab heading="About {{user?.knownAs}}">
             <h4>Description</h4>
-            <p>{{user.introduction}}</p>
+            <p *ngIf="user.introduction;else other_intro">{{user.introduction}}</p>
+            <ng-template #other_intro>Nothing to display here</ng-template>
             <h4>Looking for</h4>
-            <p>{{user.lookingFor}}</p>
+            <p *ngIf="user.lookingFor;else other_looking">{{user.lookingFor}}</p>
+            <ng-template #other_looking>Nothing to display here</ng-template>
           </tab>
           <tab heading="Interests">
             <h4>Interestes</h4>
-            <p>{{user.interests}}</p>
+            <p *ngIf="user.interests;else other">{{user.interests}}</p>
+            <ng-template #other>Nothing to display here</ng-template>
           </tab>
           <tab heading="Photos">
             <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
