@@ -70,6 +70,12 @@ namespace DatingApp
                             ValidateAudience = false
                         };
                     });
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+                options.AddPolicy("ModeratePhotoRole", policy => policy.RequireRole("Admin", "Moderstor"));
+                options.AddPolicy("VipOnle", policy => policy.RequireRole("VIP"));
+            });
 
             services.AddMvc(options => 
                 {
@@ -89,7 +95,6 @@ namespace DatingApp
             Mapper.Reset();
             services.AddAutoMapper();
             services.AddTransient<Seed>();
-            services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IDatingRepository, DatingRepository>();
             
             services.AddScoped<LogUserActivity>();
