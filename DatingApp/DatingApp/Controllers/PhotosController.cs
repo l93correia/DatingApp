@@ -58,7 +58,7 @@ namespace DatingApp.Controllers
                 return Unauthorized();
             }
 
-            var userFromRepo = await _repo.GetUser(userId);
+            var userFromRepo = await _repo.GetUser(userId, true);
 
             var file = photoForCreationDto.File;
 
@@ -107,7 +107,7 @@ namespace DatingApp.Controllers
             {
                 return Unauthorized();
             }
-            var user = await _repo.GetUser(userId);
+            var user = await _repo.GetUser(userId, true);
             if (!user.Photos.Any(p => p.Id == id))
                 return Unauthorized();
 
@@ -133,7 +133,7 @@ namespace DatingApp.Controllers
             {
                 return Unauthorized();
             }
-            var user = await _repo.GetUser(userId);
+            var user = await _repo.GetUser(userId, true);
             if (!user.Photos.Any(p => p.Id == id))
                 return Unauthorized();
 
@@ -142,9 +142,9 @@ namespace DatingApp.Controllers
             if (photoFromRepo.IsMain)
                 return BadRequest("You cannot delete your main photo");
 
-            if (photoFromRepo.PublicID != null)
+            if (photoFromRepo.PublicId != null)
             {
-                var deleteParams = new DeletionParams(photoFromRepo.PublicID);
+                var deleteParams = new DeletionParams(photoFromRepo.PublicId);
 
                 var result = _cloudinary.Destroy(deleteParams);
 
@@ -154,7 +154,7 @@ namespace DatingApp.Controllers
                 }
             }
 
-            if(photoFromRepo.PublicID == null){
+            if(photoFromRepo.PublicId == null){
                 _repo.Delete(photoFromRepo);
             }
 

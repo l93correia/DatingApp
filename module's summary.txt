@@ -1,0 +1,93 @@
+2-
+	Create the web API project
+	Review the default files 
+		created by the DotNetCLi
+	ensure the web api runs successfully
+	create our databse using the code 
+		first approach
+	add source control
+	create the angular application
+	make HTTP requests from angular to fetch 
+		data from our API
+	bind data from the API to the HTML 
+		to display it on the page
+	add support for Bootstrap and Font-Awesome
+3-
+	How we store passwords in the database
+	Creating the User Model
+	The Repository Pattern
+	creating the Authentication Controller
+	Data Transfer Objects
+	Token Authentication
+	Authentication Middleware
+4-
+	Angular services
+	Conditionally displaying elements in the DOM
+	Input Properties
+	Output properties
+5-
+	Error handling in the API
+	Error handling on the client
+6-
+	Alertify
+	Angular JWT
+	NGX bootstrap
+	bootswatch
+7-
+	setting up routing
+	using RouterLinkActive
+	using Routing in code
+	protecting the routes
+	protecting multiple routes at once
+8-
+	Extending the User class
+	More migrations
+	cascade delete
+	seeding data into our database
+	creating a new repository
+	using automapper
+9-
+	Using types in Typescript
+	Retrieving Users from the Api
+	Using bootstrap to create member cards
+	adding a detailed view of the users
+	route resolvers
+	adding a photo gallery
+10-
+	created a component for editing profile
+	CanDeactivate route guard
+	the @HostListner decorator
+	the @ViewChild decorator
+	persisted changes to the api
+11-
+	where to store photos
+	added a photos controller
+	ng2 file upload
+	setting the photo as main
+	using filter and splice
+	any to any compoment communication
+	deleting photos
+12-
+	reactive forms introduction
+	validation
+	custom validators
+	validation feedback
+	the date problem
+	hooking it all up the API
+13-
+	TimeAgo
+	LastActive
+14-
+	paging in the api/spa
+	filtering in the api/spa
+	sorting in the api/spa
+15-
+	defining relationships in entity framework
+	using the fluent api
+	Adding the likes functionality
+16-
+	the message entity
+	CRUD
+	inbox, outbox, unread messages
+	add a 'chat' desing to the messaging system
+	adding the mark as read functionality
